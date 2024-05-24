@@ -16,8 +16,13 @@ public class GameManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+    }
 
-       // UpdateGold(initialGold);
+    //I KNOW IS NOT THE BEST BUT I'M OUT OF TIME X`C
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
     }
 
     public void UpdateGold(int value)
