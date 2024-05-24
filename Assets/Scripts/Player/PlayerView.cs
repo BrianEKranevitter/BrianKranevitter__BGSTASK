@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerView : MonoBehaviour
 {
     public Animator anim;
-    public SpriteRenderer[] head, torso, legs;
     bool flipped;
+
     public void FlipPlayerView(int orientation)
     {
         if (orientation == -1 && !flipped)
@@ -19,5 +19,15 @@ public class PlayerView : MonoBehaviour
             transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             flipped = false;
         }
+    }
+
+    public void MoveAnimation()
+    {
+        anim.SetBool("Moving", true);
+    }
+
+    public void IdleAnimation()
+    {
+        anim.SetBool("Moving", false);
     }
 }

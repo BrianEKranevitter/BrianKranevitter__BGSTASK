@@ -25,11 +25,19 @@ public class PlayerController : MonoBehaviour
         var xSpeed = Input.GetAxis("Horizontal");
         var ySpeed = Input.GetAxis("Vertical");
 
-        transform.position += new Vector3( xSpeed* _model.playerSpeed, ySpeed * _model.playerSpeed, 0) * Time.deltaTime;
+        transform.position += new Vector3(xSpeed * _model.playerSpeed, ySpeed * _model.playerSpeed, 0) * Time.deltaTime;
 
         if (xSpeed > 0)
+        {
             _view.FlipPlayerView(1);
-        else if(xSpeed<0)
+            _view.MoveAnimation();
+        }
+        else if (xSpeed < 0)
+        {
             _view.FlipPlayerView(-1);
+            _view.MoveAnimation();
+        }
+        else
+            _view.IdleAnimation();
     }
 }
