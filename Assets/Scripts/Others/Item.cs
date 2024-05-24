@@ -4,15 +4,41 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public UI_ShopManager sm;
+    OutfitManager ofm;
+    [SerializeField]
+    GameObject equipedMessage;
+    public int price;
+    public Sprite[] parts;
+    public bool equiped;
+    public OutfitType type;
+
+    void Awake()
     {
-        
+        ofm = FindObjectOfType<OutfitManager>();
+    }
+    public void Sell()
+    {
+        if (!equiped)
+            sm.SellItem(this, price);
+        else
+            ShowEquipedMessage();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Equip()
     {
-        
+        if (!equiped)
+        {
+            ofm.ChangeOutfit(parts, type);
+            equiped = true;
+            sm.ChangeEquiped(this, type);
+        }
+        else
+            ShowEquipedMessage();
+    }
+
+    void ShowEquipedMessage()
+    {
+        equipedMessage.SetActive(true);
     }
 }
