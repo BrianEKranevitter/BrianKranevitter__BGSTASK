@@ -5,8 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public int gold;
+    public int initialGold;
 
+    [HideInInspector]
+    public int gold;
 
     private void Awake()
     {
@@ -14,6 +16,8 @@ public class GameManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+
+       // UpdateGold(initialGold);
     }
 
     public void UpdateGold(int value)

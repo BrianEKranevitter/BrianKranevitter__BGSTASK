@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class OutfitManager : MonoBehaviour
 {
+    public SpriteRenderer[] head, torso, legs;
 
-    SpriteRenderer[] head, torso, legs;
-    
     public void ChangeOutfit(Sprite[] newOutfit, OutfitType type)
     {
         switch (type)

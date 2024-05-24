@@ -46,6 +46,7 @@ public class UI_ShopManager : MonoBehaviour
 
     public void BuyItem(ItemData data, int slotIndex)
     {
+        Debug.Log("BuyItem");
         GameManager.Instance.UpdateGold(-data.price);
         UI_GeneralManager.Instance.UpdateGoldText();
         Item _item = GameObject.Instantiate(data.item, inventorySlots[slotIndex].transform);
@@ -57,7 +58,7 @@ public class UI_ShopManager : MonoBehaviour
     {
         GameManager.Instance.UpdateGold(item.price);
         UI_GeneralManager.Instance.UpdateGoldText();
-        Destroy(item);
+        Destroy(item.gameObject);
     }
 
     public void ShowExpensiveMessage()
@@ -87,7 +88,6 @@ public class UI_ShopManager : MonoBehaviour
         {
             if (inventorySlots[i].item == null)
             {
-                BuyItem(data, i);
                 return Tuple.Create(true, i);
             }
         }
@@ -101,19 +101,19 @@ public class UI_ShopManager : MonoBehaviour
 
             case OutfitType.Head:
 
-                equipedHead.equiped = false;
+                if (equipedHead != null) equipedHead.equiped = false;
                 equipedHead = item;
                 break;
 
             case OutfitType.Torso:
 
-                equipedTorso.equiped = false;
+                if (equipedTorso != null) equipedTorso.equiped = false;
                 equipedTorso = item;
                 break;
 
             case OutfitType.Legs:
 
-                equipedPants.equiped = false;
+                if (equipedPants != null) equipedPants.equiped = false;
                 equipedPants = item;
                 break;
         }

@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UI_GeneralManager : MonoBehaviour
 {
     public static UI_GeneralManager Instance { get; private set; }
-    public TextMesh currentGoldText;
+    public TextMeshProUGUI currentGoldText;
 
     private void Awake()
     {
@@ -17,6 +18,6 @@ public class UI_GeneralManager : MonoBehaviour
     }
     public void UpdateGoldText()
     {
-        currentGoldText.text = "GM.Instance.gold";
+        currentGoldText.text = "" + GameManager.Instance.gold;
     }
 }
