@@ -40,5 +40,12 @@ public class Item : MonoBehaviour
     void ShowEquipedMessage()
     {
         equipedMessage.SetActive(true);
+        StartCoroutine(ShowEquipedMessageTimer());
+    }
+
+    IEnumerator ShowEquipedMessageTimer()
+    {
+        yield return new WaitForSeconds(1);
+        equipedMessage.SetActive(false);
     }
 }

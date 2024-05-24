@@ -11,7 +11,6 @@ public class ShopTrigger : MonoBehaviour
     {
         if (other.gameObject.layer == 6)
         {
-            Debug.Log("PlayerEntered");
             onShopTriggerIn?.Invoke();
         }
     }
@@ -20,7 +19,6 @@ public class ShopTrigger : MonoBehaviour
     {
         if (collision.gameObject.layer == 6)
         {
-            Debug.Log("PlayerExit");
             onShopTriggerOut?.Invoke();
         }
     }

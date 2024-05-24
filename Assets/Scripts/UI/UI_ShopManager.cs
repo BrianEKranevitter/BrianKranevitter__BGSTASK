@@ -46,7 +46,6 @@ public class UI_ShopManager : MonoBehaviour
 
     public void BuyItem(ItemData data, int slotIndex)
     {
-        Debug.Log("BuyItem");
         GameManager.Instance.UpdateGold(-data.price);
         UI_GeneralManager.Instance.UpdateGoldText();
         Item _item = GameObject.Instantiate(data.item, inventorySlots[slotIndex].transform);
@@ -64,11 +63,13 @@ public class UI_ShopManager : MonoBehaviour
     public void ShowExpensiveMessage()
     {
         ExpMsg.SetActive(true);
+        StartCoroutine(ShowExpensiveMessageTimer());
     }
 
     public void ShowInventoryFullMessage()
     {
         InvFullMsg.SetActive(true);
+        StartCoroutine(ShowInventoryFullMesssageTimer());
     }
 
     public void ChangePanel(int index)
@@ -117,5 +118,17 @@ public class UI_ShopManager : MonoBehaviour
                 equipedPants = item;
                 break;
         }
+    }
+
+    IEnumerator ShowExpensiveMessageTimer()
+    {
+        yield return new WaitForSeconds(2);
+        ExpMsg.SetActive(false);
+    }
+
+    IEnumerator ShowInventoryFullMesssageTimer()
+    {
+        yield return new WaitForSeconds(2);
+        InvFullMsg.SetActive(false);
     }
 }
