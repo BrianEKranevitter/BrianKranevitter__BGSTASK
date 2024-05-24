@@ -1,18 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_ShopManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public InventorySlot[] inventorySlots;
+    [SerializeField]
+    Image ExpMsg, InvFullMsg;
+    [SerializeField]
+    GameObject[] itemPanels;
+    public Item equipedHead, equipedPants, equipedTorso;
+
+
+
+
+
+
+
+    public void TryToBuyItem(ItemData data)
     {
-        
+
+    }
+    public void BuyItem(ItemData data)
+    {
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SellItem(Item item, int price)
     {
-        
+
+    }
+    public void ShowExpensiveMessage()
+    {
+
+    }
+    public void ShowInventoryFullMessage()
+    {
+
+    }
+
+    public void ChangePanel(int index)
+    {
+
+    }
+
+    public void LookForSlot()
+    {
+
+    }
+
+    public void ChangeEquiped(Item item, OutfitType type)
+    {
+
     }
 }
