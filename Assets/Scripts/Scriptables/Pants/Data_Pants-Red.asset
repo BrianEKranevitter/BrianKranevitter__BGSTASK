@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Data_Pants-Red
   m_EditorClassIdentifier: 
   price: 10
-  item: {fileID: 0}
+  item: {fileID: 1805678350924695428, guid: 30f8ec44a93b4fc4f92971479df29428, type: 3}

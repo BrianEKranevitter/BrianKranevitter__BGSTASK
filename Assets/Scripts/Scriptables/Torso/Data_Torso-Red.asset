@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Data_Torso-Red
   m_EditorClassIdentifier: 
   price: 15
-  item: {fileID: 0}
+  item: {fileID: 1805678350924695428, guid: da59a46dc73a7674a91c79ca3fc7815b, type: 3}

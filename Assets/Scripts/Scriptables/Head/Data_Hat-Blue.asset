@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Data_Hat-Blue
   m_EditorClassIdentifier: 
   price: 5
-  item: {fileID: 0}
+  item: {fileID: 1805678350924695428, guid: 64500cd9cbe25ef40825bbb3c88337a1, type: 3}
