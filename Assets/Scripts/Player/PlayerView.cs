@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class PlayerView : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Animator anim;
+    public SpriteRenderer[] head, torso, legs;
+    bool flipped;
+    public void FlipPlayerView(int orientation)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (orientation == -1 && !flipped)
+        {
+            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            flipped = true;
+        }
+        else if (orientation == 1 && flipped)
+        {
+            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            flipped = false;
+        }
     }
 }
