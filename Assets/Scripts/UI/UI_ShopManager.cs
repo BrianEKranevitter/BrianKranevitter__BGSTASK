@@ -5,23 +5,37 @@ using UnityEngine.UI;
 
 public class UI_ShopManager : MonoBehaviour
 {
+    [SerializeField]
+    GameObject shopHolder;
     public InventorySlot[] inventorySlots;
     [SerializeField]
-    Image ExpMsg, InvFullMsg;
+    GameObject ExpMsg, InvFullMsg;
     [SerializeField]
     GameObject[] itemPanels;
     public Item equipedHead, equipedPants, equipedTorso;
 
+    private void Awake()
+    {
+        ShopTrigger.onShopTriggerIn += OpenShop;
+        ShopTrigger.onShopTriggerOut += CloseShop;
+    }
 
 
+    void OpenShop()
+    {
+        shopHolder.SetActive(true);
+    }
 
-
-
+    void CloseShop()
+    {
+        shopHolder.SetActive(false);
+    }
 
     public void TryToBuyItem(ItemData data)
     {
 
     }
+
     public void BuyItem(ItemData data)
     {
 
@@ -31,10 +45,12 @@ public class UI_ShopManager : MonoBehaviour
     {
 
     }
+
     public void ShowExpensiveMessage()
     {
 
     }
+
     public void ShowInventoryFullMessage()
     {
 
